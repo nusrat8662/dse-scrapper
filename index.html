@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en" class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Dhaka Stock Exchange</title>		
+		
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+			
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/jquery.fancybox.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/slit-slider.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/modernizr-2.6.2.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+        <style type="text/css">
+        	input {
+        		margin-top: 10px;
+        	}
+
+		 	#makeGreen td:nth-child(3){
+		 		color: green;
+		 	}
+
+		 	#makeRed td:nth-child(3){
+		 		color: red;
+		 	}
+
+		 	#makeShareGreen td:nth-child(7){
+		 		color: green;
+		 	}
+
+		 	#makeShareRed td:nth-child(7){
+		 		color: red;
+		 	}
+        </style>
+
+        <script src="js/last_trade_price.js"></script>
+        <script src="js/fetch_allshare.js"></script>
+        <script src="js/negative_price.js"></script>
+        <script src="js/debt.js"></script>
+        <script src="js/change.js"></script>
+        <link rel="stylesheet" href="css/table_style.css">
+
+	    <script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+	    <script type="text/javascript" src="js/companies.js"></script>
+	    <script type="text/javascript" src="js/demo.js"></script>
+
+	    <link rel="stylesheet" type="text/css" href="css/autocomplete_styles.css">
+
+	    <script type="text/javascript">
+	    	function submit() {
+	    		var company = $('#autocomplete-dynamic').val();
+	    		var pageurl = "company.html?name=" + company;
+	    		window.location.replace(pageurl);
+	    	}
+	    </script>
+    </head>
+	
+    <body id="body">
+
+      	<div id="pulledData" style="display: none"></div>
+  		<div id="pulledShareData" style="display: none"></div>
+
+		<div id="preloader">
+            <div class="loder-box">
+            	<div class="battery"></div>
+            </div>
+		</div>
+
+        <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+            <div class="container">
+                <div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+                    </button>
+					<h1 class="navbar-brand">
+						<a href="#body">Dhaka Stock Exchange</a>
+					</h1>
+                </div>
+
+                <nav class="collapse navbar-collapse navbar-right" role="navigation">
+                    <ul id="nav" class="nav navbar-nav">
+                        <li><a href="#body">Home</a></li>
+                        <li><a href="#service">Share Price</a></li>
+                    </ul>
+                    <input type="text" name="country" id="autocomplete-dynamic"/>            
+        			<button onclick="submit()">Search</button>
+                </nav>			
+            </div>
+        </header>
+		
+		<main class="site-content" role="main">
+		
+		<section id="home-slider">
+            <div id="slider" class="sl-slider-wrapper">
+
+				<div class="sl-slider">
+				
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+
+						<div class="bg-img bg-img-1"></div>
+
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2 class="animated fadeInDown">Dhaka Stock Exchange</h2>
+                                <span class="animated fadeInDown">The place for all your stock prices and information.</span>
+                            </div>
+                        </div>
+						
+					</div>
+					
+					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+					
+						<div class="bg-img bg-img-2"></div>
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2>Dhaka Stock Exchange</h2>
+                                <span>The place for all your stock prices and information.</span>
+                            </div>
+                        </div>
+						
+					</div>
+					
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+						
+						<div class="bg-img bg-img-3"></div>
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2>Dhaka Stock Exchange</h2>
+                                <span>The place for all your stock prices and information.</span>
+                            </div>
+                        </div>
+
+					</div>
+
+				</div>
+                
+                <nav id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
+                    <a href="javascript:;" class="sl-prev">
+                        <i class="fa fa-angle-left fa-3x"></i>
+                    </a>
+                    <a href="javascript:;" class="sl-next">
+                        <i class="fa fa-angle-right fa-3x"></i>
+                    </a>
+                </nav>
+                
+
+				<nav id="nav-dots" class="nav-dots visible-xs visible-sm hidden-md hidden-lg">
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+				</nav>
+
+			</div>
+		</section>
+
+		<section id="service">
+			<div class="container">
+				<div class="row">			
+					<div class="sec-title text-center">
+						<h2 class="wow animated bounceInLeft">Share Price</h2>
+					</div>
+						
+			      	<div id ="nav_t"> 
+			            <ul class="nav nav-pills nav-fill nav-justified" style="cursor: pointer;">
+			            	<li class="active">
+					            <a data-toggle="tab" data-target="#showtable">All Share Prices</a>
+					        </li>
+
+			            	<li>
+			              		<a data-toggle="tab" data-target="#showLastTrade">Last Trade Price</a>
+			            	</li>
+
+			            	<li>
+			              		<a data-toggle="tab" data-target="#showChange">% Change</a>
+			           		</li>
+
+					        <li>
+					           	<a data-toggle="tab" data-target="#negative_share">Negative % Change</a>
+					        </li>
+			            
+			            	<li>
+					            <a data-toggle="tab" data-target="#showDebt">Debt Board</a>
+					        </li>
+
+			            </ul>
+			      	</div>
+			    </div>
+
+			    <div id="shareTable">
+					<div class="tab-content" style="margin: 0 auto;">		  		
+						<div id="showLastTrade" class="table-responsive tab-pane fade" style="display:none;"></div>
+						<div id="showChange" class="table-responsive tab-pane fade"></div>
+						<div id="showDebt" class="table-responsive tab-pane fade"></div>
+						<div id="showtable" style="display: none" class="table-responsive tab-pane fade in active"></div>
+			  			<div id="negative_share" class="table-responsive tab-pane fade"></div>
+					</div>
+				</div>
+						
+			</div>
+		</section>
+					
+		</main>
+		
+		<footer id="footer">
+			<div class="container">
+				<div class="row text-center">
+					<div class="footer-content">				
+						<p>Copyright &copy; 2014-2015 Design and Developed By<a href="http://www.themefisher.com">Themefisher</a> </p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.singlePageNav.min.js"></script>
+        <script src="js/jquery.fancybox.pack.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/jquery.slitslider.js"></script>
+        <script src="js/jquery.ba-cond.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

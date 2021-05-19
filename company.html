@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Dhaka Stock Exchange</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <script src="js/company.js"></script>
+
+
+  <script src="js/plotly-latest.min.js"></script>
+    
+    <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+          
+    <!-- Fontawesome Icon font -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- bootstrap.min -->
+        <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <!-- bootstrap.min -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- bootstrap.min -->
+        <link rel="stylesheet" href="css/owl.carousel.css">
+    <!-- bootstrap.min -->
+        <link rel="stylesheet" href="css/slit-slider.css">
+    <!-- bootstrap.min -->
+        <link rel="stylesheet" href="css/animate.css">
+    <!-- Main Stylesheet -->
+        <link rel="stylesheet" href="css/main.css">
+
+        <link rel="stylesheet" href="css/table_style_company.css">
+        <link rel="stylesheet" href="css/table_style.css">
+
+    <!-- Modernizer Script for old Browsers -->
+        <script src="js/modernizr-2.6.2.min.js"></script>
+
+        <style type="text/css">
+          input {
+            margin-top: 10px;
+          }
+
+
+          #showData2 {
+            margin: 0 auto;
+          }
+
+          #showDataHere {
+            margin: 0 auto;
+          }
+
+          #graph1 {
+            margin: 0 auto;
+          }
+
+          #buttons {
+            margin: 0 auto;
+            align-items: center;
+            text-align: center;
+          }
+
+        </style>
+
+        <script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+        <script type="text/javascript" src="js/companies.js"></script>
+        <script type="text/javascript" src="js/demo.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/autocomplete_styles.css">
+
+        <script type="text/javascript">
+          function submit() {
+            var company = $('#autocomplete-dynamic').val();
+            var pageurl = "company.html?name=" + company;
+            window.location.replace(pageurl);
+          }
+        </script>
+
+        <script src="js/graph.js"></script>
+
+</head>
+<body>
+
+ <div id="pulledData" style="display: none"></div>
+
+    <div id="preloader">
+      <div class="loder-box">
+          <div class="battery"></div>
+      </div>
+    </div>
+
+    <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+          
+            <h1 class="navbar-brand">
+              <a href="index.html">Dhaka Stock Exchange</a>
+            </h1>
+          </div>
+        
+          <nav class="collapse navbar-collapse navbar-right" role="navigation">
+              <ul id="nav" class="nav navbar-nav">
+                  <li><a href="#home-slider">Home</a></li>
+                  <li><a href="#companyInfo">Company Information</a></li>
+              </ul>
+              
+              <input type="text" name="country" id="autocomplete-dynamic"/>            
+              <button onclick="submit()">Search</button>
+          </nav>        
+      </div>
+    </header>
+
+    <main class="site-content" role="main">
+      <section id="home-slider">
+        <div id="slider" class="sl-slider-wrapper">
+          <div class="sl-slider">        
+            <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+              <div class="bg-img bg-img-2"></div>
+               <div class="slide-caption">
+                  <div class="caption-content">
+                    <h2 class="animated fadeInDown">Dhaka Stock Exchange</h2>
+                      <span class="animated fadeInDown">See your stock values in real time</span>
+                  </div>
+                </div>      
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="companyInfo">
+        <div class="container">
+          <div class="row">     
+            <div id="titleH" class="sec-title text-center">
+
+            </div>
+
+                <div id ="nav_t"> 
+                    <ul class="nav nav-pills nav-fill nav-justified" style="cursor: pointer;">
+                      <li class="active">
+                        <a data-toggle="tab" data-target="#marketInfo">Market Info</a>
+                      </li>
+
+                      <li>
+                          <a data-toggle="tab" data-target="#basicInfo">Basic Info</a>
+                      </li>
+
+                      <li>
+                          <a data-toggle="tab" data-target="#agmInfo">AGM Info</a>
+                      </li>
+                  
+                      <li>
+                        <a data-toggle="tab" data-target="#interim">Interim Financial Performance</a>
+                      </li>
+
+                      <li>
+                        <a data-toggle="tab" data-target="#addressCom">Address</a>
+                      </li>
+
+                      <li>
+                        <a data-toggle="tab" data-target="#graph">Graphs</a>
+                      </li>
+                    </ul>
+                </div>
+          </div>
+                <div class="tab-content" style="margin: 0 auto;">         
+                  <div id="marketInfo" class="table-responsive tab-pane fade in active">
+                    <table class="responstable">
+                      <tr><th>Market Information</th></tr>
+                    </table>
+                      <div id="market"></div>
+                    <table class="responstable">
+                      <tr><th>Market Information (Day)</th></tr>
+                    </table>
+                      <div id="market2"></div>
+                  </div>
+                  <div id="basicInfo" class="table-responsive tab-pane fade">
+                    <table class="responstable">
+                      <tr><th>Basic Information</th></tr>
+                    </table>
+                    <div id="basic"></div>
+                    <table class="responstable">
+                      <tr><th>Trading Information</th></tr>
+                    </table>
+                    <div id="basic2"></div>
+                  </div>
+                  <div id="agmInfo" class="table-responsive tab-pane fade">
+                    <div id="agmTitle"></div>
+                    <div id="agm"></div>
+                  </div>
+                  <div id="interim" class="table-responsive tab-pane fade">
+                    <table class="responstable">
+                      <tr><th>Interim Financial Performance of this year</th></tr>
+                    </table>
+                      <div id="interimTable"></div>
+                  </div>
+                  <div id="addressCom" class="table-responsive tab-pane fade">
+                    <table class="responstable">
+                      <tr><th>Address of the company</th></tr>
+                    </table>
+                    <div id="address"></div>
+                  </div>
+                  <div id="graph" class="table-responsive tab-pane fade">
+                    <h3 style="text-align: center;">Closing Price Graph</h3>
+                    <div id="graph1"></div>
+                    <div id="buttons" class="btn-group">
+                      <button onclick="oneMonth()" class="btn btn-primary">1 Month</button>
+                      <button onclick="threeMonth()" class="btn btn-primary">3 Months</button>
+                      <button onclick="sixMonth()" class="btn btn-primary">6 months</button>
+                      <button onclick="nineMonth()" class="btn btn-primary">9 months</button>
+                      <button onclick="oneYear()" class="btn btn-primary">1 Year</button>
+                      <button onclick="twoYears()" class="btn btn-primary">2 Years</button>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+          </div>
+        </div>
+            
+        </div>
+      </section>
+          
+    </main>
+    
+    <footer id="footer">
+      <div class="container">
+        <div class="row text-center">
+          <div class="footer-content">        
+            <p>Copyright &copy; 2014-2015 Design and Developed By<a href="http://www.themefisher.com">Themefisher</a> </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.singlePageNav.min.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.slitslider.js"></script>
+    <script src="js/jquery.ba-cond.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
